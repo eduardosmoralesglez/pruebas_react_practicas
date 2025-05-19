@@ -1,6 +1,6 @@
 import { Square } from "./Square"
-import { winner } from "../constans"
-export function Winner() {
+
+export function Winner( { winner, resetGame }) {
     const winnerText = winner === false ? 'Empate' : 'Ganó:'
     if (winner === null) {
         return null

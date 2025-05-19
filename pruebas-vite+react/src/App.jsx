@@ -2,21 +2,8 @@ import './App.css'
 import { useState } from 'react'
 
 import { TURNS , posiblesVictorias } from './constans'
-
-
-// Componente Square
-// Se encarga de mostrar el cuadrado del tablero
-const Square = ({ children, isSelected, updateBoard, index }) => {
-  const className = `square ${isSelected ? 'is-selected' : ''}`
-  const handleClick = () => {
-    updateBoard(index)
-  }
-  return (
-    <div onClick={handleClick} className={className}>
-      {children}
-    </div>
-  )
-}
+import { Square } from './components/Square'
+import { Winner } from './components/Winner'
 
 
 // Componente principal de la aplicación
@@ -98,27 +85,7 @@ function App() {
           {TURNS.O}
         </Square>
       </section>
-
-      {
-        winner !== null && (
-          <section className="winner">
-            <div className="text">
-              <h2>
-                {winner === false ? 'Empate' : 'Ganó:'}
-              </h2>
-              <header className={`win ${winner}`}>
-                <Square>{winner}</Square>
-              </header>
-              <footer>
-                <button onClick={() => {resetGame()}}>
-                  Empezar de nuevo
-                </button>
-              </footer>
-            </div>
-          </section>
-        )
-      }
-
+      <Winner winner={winner} resetGame={resetGame} />
     </main>
 
   )
