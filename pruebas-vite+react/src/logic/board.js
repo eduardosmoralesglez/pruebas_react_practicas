@@ -1,4 +1,4 @@
-import { posiblesVictorias } from "../constans";
+import { posiblesVictorias } from "..constans/";
 
 export const checkWinner = (board) => {
     for (const posible of posiblesVictorias) {

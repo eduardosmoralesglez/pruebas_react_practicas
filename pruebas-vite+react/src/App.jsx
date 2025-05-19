@@ -1,12 +1,8 @@
 import './App.css'
 import { useState } from 'react'
 
-// Turnos de los jugadores
-const TURNS = {
-  X: '❌',
-  O: '⭕'
+import { TURNS , posiblesVictorias } from './constans'
 
-}
 
 // Componente Square
 // Se encarga de mostrar el cuadrado del tablero
@@ -22,17 +18,6 @@ const Square = ({ children, isSelected, updateBoard, index }) => {
   )
 }
 
-// Posibles combinaciones ganadoras
-const posiblesVictorias = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-  [0, 4, 8],
-  [2, 4, 6]
-]
 
 // Componente principal de la aplicación
 // Se encarga de manejar el estado del juego

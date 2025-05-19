@@ -1,6 +1,3 @@
-import { useState } from 'react'
-
-
 // Turnos de los jugadores
 export const TURNS = {
   X: '❌',
@@ -19,5 +16,3 @@ export const posiblesVictorias = [
   [0, 4, 8],
   [2, 4, 6]
 ]
-
-export const [winner, setWinner] = useState(null)
