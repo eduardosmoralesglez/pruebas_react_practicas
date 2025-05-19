@@ -4,11 +4,10 @@ import { useState } from 'react'
 import { TURNS , posiblesVictorias } from './constans'
 import { Square } from './components/Square'
 import { Winner } from './components/Winner'
+import { checkWinner, checkEndGame } from './logic/board'
 
 
 // Componente principal de la aplicación
-// Se encarga de manejar el estado del juego
-// y la lógica del juego
 function App() {
   const [board, setBoard] = useState(Array(9).fill(null))
 
@@ -16,26 +15,11 @@ function App() {
 
   const [winner, setWinner] = useState(null)
 
-  const checkWinner = (board) => {
-    for (const posible of posiblesVictorias) {
-      const [a, b, c] = posible
-      if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-        return board[a]
-      }
-    }
-    return null;
-  }
-
   // Reinicia el juego
   const resetGame = () => {
     setWinner(null)
     setBoard(Array(9).fill(null))
     setTurn(TURNS.X)
-  }
-
-  // Verifica si el juego ha terminado
-  const checkEndGame = (Board) => {
-    return Board.every((square) => square !== null)
   }
 
   // Actualiza el tablero
