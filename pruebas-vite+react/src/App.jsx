@@ -47,8 +47,8 @@ function App() {
   // Renderización del componente
   return (
     <main className="board">
-      <h1>Pruebas</h1>
-      <button onClick={resetGame}>Reiniciar Juegos </button>
+      <h1>Tres en Raya</h1>
+      <button onClick={resetGame}>Reiniciar Juegos</button>
       <section className="game">
         {
           board.map((_, index) => {
