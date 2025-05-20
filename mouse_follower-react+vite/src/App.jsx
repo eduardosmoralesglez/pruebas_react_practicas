@@ -7,10 +7,17 @@ function App() {
   const [posicion, setPosition] = useState({ x: 0, y: 0 })
 
   useEffect(() => {
+    if (!enable) {
+      setPosition({ x: 475, y: 300 })
+    }
+  }, [enable])
+
+  useEffect(() => {
     const handleMouseMove = (event) => {
       const { clientX, clientY } = event
       setPosition({ x: clientX, y: clientY })
     }
+
     if (enable) {
       window.addEventListener('mousemove', handleMouseMove)
     }
