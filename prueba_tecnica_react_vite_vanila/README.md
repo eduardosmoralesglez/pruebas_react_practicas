@@ -3,5 +3,5 @@
 APIs:
 
 - Facts Random: https://catfact.ninja/fact
-- Imagen random: https://cataas.com/cat/says/hello
+- Imagen random: https://cataas.com/cat/says/hello?fontSize=50&fontColor=red
 
