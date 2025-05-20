@@ -1,5 +1,5 @@
 import './App.css';
-import { use, useEffect } from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import { API_GATOS_FACTS, API_GATO_IMAGEN } from "./constantes";
 
