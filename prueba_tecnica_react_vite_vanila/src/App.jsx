@@ -1,5 +1,5 @@
 import './App.css';
-import { useEffect } from "react";
+import { use, useEffect } from "react";
 import { useState } from "react";
 import { API_GATOS_FACTS, API_GATO_IMAGEN } from "./constantes";
 
@@ -7,23 +7,25 @@ import { API_GATOS_FACTS, API_GATO_IMAGEN } from "./constantes";
 export function App() {
 
     const [fact, setFact] = useState();
-    const [imagenURL, setImagenURL] = useState();   
+    const [imagenURL, setImagenURL] = useState();
 
     useEffect(() => {
         fetch(API_GATOS_FACTS)
             .then((response) => response.json())
             .then((data) => {
-                const { fact } = data
                 setFact(data.fact);
-
-                const palabras = fact.split(" ",3).join(" ");
-                fetch(API_GATO_IMAGEN(palabras))
-                    .then((response) => response.url)
-                    .then((url) => {
-                        setImagenURL(url);
-                    })
             })
     }, []);
+
+    useEffect(() => {
+        if (!fact) return;
+        const palabras = fact.split(" ", 3).join(" ");
+        fetch(API_GATO_IMAGEN(palabras))
+            .then((response) => response.url)
+            .then((url) => {
+                setImagenURL(url);
+            })
+    }, [fact]);
 
     return (
         <main>
