@@ -1,6 +1,6 @@
+import './App.css';
 import { useEffect } from "react";
 import { useState } from "react";
-
 import { API_GATOS_FACTS, API_GATO_IMAGEN } from "./constantes";
 
 
@@ -22,18 +22,16 @@ export function App() {
                     .then((url) => {
                         setImagenURL(url);
                     })
-
-
             })
-
-
     }, []);
 
     return (
         <main>
             <h1>App pruebas con APIS</h1>
-            {fact && <p>{fact}</p>}
-            {imagenURL && <img src={imagenURL} alt="Gato" />}
+            <section>
+                {fact && <p>{fact}</p>}
+                {imagenURL && <img src={imagenURL} alt="Gato" />}
+            </section>
         </main>
     )
 }
