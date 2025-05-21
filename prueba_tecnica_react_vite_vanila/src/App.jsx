@@ -1,6 +1,6 @@
 import './App.css';
 import { useEffect, useState } from "react";
-import { API_GATOS_FACTS, API_GATO_IMAGEN, bucleIncidencias } from "./constantes";
+import { API_GATOS_FACTS, API_GATO_IMAGEN } from "./constantes";
 
 
 export function App() {
@@ -13,11 +13,11 @@ export function App() {
             .then((response) => response.json())
             .then((data) => {
                 setFact(
-                    bucleIncidencias(data.incidencias)
+                    data.fact
                 );
             })
     }, []);
-/** 
+
     useEffect(() => {
         if (!fact) return;
         const palabras = fact.split(" ", 3).join(" ");
@@ -27,7 +27,7 @@ export function App() {
                 setImagenURL(url);
             })
     }, [fact]);
-*/
+
     return (
         <main>
             <h1>App pruebas con APIS</h1>
